@@ -40,7 +40,6 @@ class User:
 
         soup = BeautifulSoup(html_text, 'lxml')
 
-        problems_count = soup.find('div', class_='text-[24px] font-medium text-label-1 dark:text-dark-label-1').text
 
         categories = soup.find_all('span', class_='mr-[5px] text-base font-medium leading-[20px] text-label-1 dark:text-dark-label-1')
 
@@ -50,7 +49,7 @@ class User:
         self.score = self.easy + self.medium * 2 + self.hard * 3
         self.total = self.easy + self.medium + self.hard
 
-        self.ProblemsByDifficultyString = f'{self.username} has solved {problems_count} problems of which {self.easy} are EASY, {self.medium} are MEDIUM and {self.hard} are HARD.'
+        self.ProblemsByDifficultyString = f'{self.username} has solved {self.total} problems of which {self.easy} are EASY, {self.medium} are MEDIUM and {self.hard} are HARD.'
 
         return
 
